@@ -45,6 +45,13 @@ body
    margin: 0;
    text-align: center;
 }
+#wb_TB_MainLabel
+{
+   color: #000000;
+   font-family: Arial;
+   font-weight: normal;
+   font-size: 16px;
+}
 #wb_TB_MainLabel div
 {
    text-align: center;
@@ -80,6 +87,13 @@ body
    padding: 0;
    margin: 0;
    text-align: left;
+}
+#wb_TB_MolMass
+{
+   color: #000000;
+   font-family: Arial;
+   font-weight: normal;
+   font-size: 16px;
 }
 #wb_TB_MolMass div
 {
@@ -117,6 +131,13 @@ body
    margin: 0;
    text-align: left;
 }
+#wb_TB_Volume
+{
+   color: #000000;
+   font-family: Arial;
+   font-weight: normal;
+   font-size: 16px;
+}
 #wb_TB_Volume div
 {
    text-align: left;
@@ -152,6 +173,13 @@ body
    padding: 0;
    margin: 0;
    text-align: left;
+}
+#wb_TB_Concentration
+{
+   color: #000000;
+   font-family: Arial;
+   font-weight: normal;
+   font-size: 16px;
 }
 #wb_TB_Concentration div
 {
@@ -232,6 +260,13 @@ body
    padding: 0;
    margin: 0;
    text-align: left;
+}
+#wb_TB_Mass
+{
+   color: #000000;
+   font-family: Arial;
+   font-weight: normal;
+   font-size: 16px;
 }
 #wb_TB_Mass div
 {
