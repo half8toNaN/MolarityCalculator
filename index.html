@@ -5,12 +5,13 @@
 <title>Molarity calculator</title>
 <meta name="author" content="PT">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<meta name="version" content="1.0.1">
+<meta name="version" content="1.0.2">
 <link href="bootstrap/jquery-ui.min.css" rel="stylesheet">
 <link href="MolarityCalculator.css" rel="stylesheet">
 <link href="index.css" rel="stylesheet">
 <script src="jquery-3.7.1.min.js"></script>
 <script src="jquery-ui.min.js"></script>
+
 <script>
 $(document).ready(function()
 {
@@ -61,11 +62,11 @@ $(document).ready(function()
 <input type="text" id="EB_Mass" onchange=";return false;" style="position:absolute;left:31px;top:175px;width:84px;height:18px;z-index:1;" name="Editbox1" value="" readonly autocomplete="off" spellcheck="false">
 <div id="wb_TB_Mass" style="position:absolute;left:141px;top:180px;width:107px;height:18px;z-index:2;"class="no-select">
 <span style="color:#000000;">Mass, g</span></div>
-<input type="submit" id="BTN_Calculate" onclick="return CalculateMass();return false;" name="" value="Calculate" style="position:absolute;left:222px;top:178px;width:105px;height:23px;z-index:3;">
+<input type="submit" id="BTN_Calculate" onclick="return CalculateMass();return false;" name="" value="Calculate" style="position:absolute;left:233px;top:178px;width:105px;height:23px;z-index:3;">
 <div id="wb_TB_Concentration" style="position:absolute;left:141px;top:124px;width:107px;height:18px;z-index:4;"class="no-select">
 <span style="color:#000000;">Concentration,</span></div>
-<input type="text" id="EB_Concentration" onfocusout="EB_Concentration.value = FloatValidationMy(EB_Concentration.value);return false;" oninput="EB_Concentration.value = FilterInput(EB_Concentration.value);return false;" style="position:absolute;left:31px;top:119px;width:84px;height:18px;z-index:5;" name="Editbox1" value="" autocomplete="off" spellcheck="false">
-<select name="Select1" size="1" id="SelB_Concentration" style="position:absolute;left:274px;top:120px;width:53px;height:26px;z-index:6;" autocomplete="off">
+<input type="text" id="EB_Concentration" onfocusout="EB_Concentration.value = FloatValidationMy(EB_Concentration.value);return false;" oninput="EB_Concentration.value = FilterInput(EB_Concentration.value);EB_Mass.value = '';return false;" style="position:absolute;left:31px;top:119px;width:84px;height:18px;z-index:5;" name="Editbox1" value="" autocomplete="off" spellcheck="false">
+<select name="Select1" size="1" id="SelB_Concentration" style="position:absolute;left:259px;top:120px;width:53px;height:26px;z-index:6;" autocomplete="off">
 <option selected value="1">M</option>
 <option value="0.001">mM</option>
 <option value="0.000001">μM</option>
@@ -73,15 +74,15 @@ $(document).ready(function()
 </select>
 <div id="wb_TB_Volume" style="position:absolute;left:141px;top:93px;width:68px;height:18px;z-index:7;"class="no-select">
 <span style="color:#000000;">Volume,</span></div>
-<input type="text" id="EB_Volume" onfocusout="EB_Volume.value = FloatValidationMy(EB_Volume.value);return false;" oninput="EB_Volume.value = FilterInput(EB_Volume.value);return false;" style="position:absolute;left:31px;top:88px;width:84px;height:18px;z-index:8;" name="Editbox1" value="" autocomplete="off" spellcheck="false">
-<select name="Select1" size="1" id="SelB_Volume" style="position:absolute;left:222px;top:89px;width:52px;height:26px;z-index:9;" autocomplete="off">
+<input type="text" id="EB_Volume" onfocusout="EB_Volume.value = FloatValidationMy(EB_Volume.value);return false;" oninput="EB_Volume.value = FilterInput(EB_Volume.value);EB_Mass.value = '';return false;" style="position:absolute;left:31px;top:88px;width:84px;height:18px;z-index:8;" name="Editbox1" value="" autocomplete="off" spellcheck="false">
+<select name="Select1" size="1" id="SelB_Volume" style="position:absolute;left:259px;top:89px;width:52px;height:26px;z-index:9;" autocomplete="off">
 <option selected value="1">L</option>
 <option value="0.001">mL</option>
 <option value="0.000001">μL</option>
 </select>
 <div id="wb_TB_MolMass" style="position:absolute;left:141px;top:61px;width:81px;height:18px;z-index:10;"class="no-select">
 <span style="color:#000000;">MW, g/mol</span></div>
-<input type="text" id="EB_MolecularMass" onfocusout="EB_MolecularMass.value = FloatValidationMy(EB_MolecularMass.value);return false;" oninput="EB_MolecularMass.value = FilterInput(EB_MolecularMass.value);SelB_MWselection.value = '';return false;" style="position:absolute;left:31px;top:56px;width:84px;height:18px;z-index:11;" name="Editbox1" value="" autocomplete="off" spellcheck="false">
+<input type="text" id="EB_MolecularMass" onfocusout="EB_MolecularMass.value = FloatValidationMy(EB_MolecularMass.value);return false;" oninput="EB_MolecularMass.value = FilterInput(EB_MolecularMass.value);SelB_MWselection.value = '';EB_Mass.value = '';return false;" style="position:absolute;left:31px;top:56px;width:84px;height:18px;z-index:11;" name="Editbox1" value="" autocomplete="off" spellcheck="false">
 <div id="wb_TB_MainLabel" style="position:absolute;left:56px;top:27px;width:250px;height:18px;text-align:center;z-index:12;"class="no-select">
 <span style="color:#000000;">Molarity calculator</span></div>
 <select name="Select1" size="1" id="SelB_MWselection" oninput="MWSelectionBoxLogic(SelB_MWselection.value);return false;" style="position:absolute;left:222px;top:57px;width:127px;height:26px;z-index:13;" autocomplete="off">
@@ -131,8 +132,10 @@ function FloatValidationMy(str) {
 function MWSelectionBoxLogic(value) {
   if (value=='add') {$("#D_AddNewMWSubstance").dialog('open');
                      document.getElementById('EB_DialogAddNewSub_Name').value = "";
-                     document.getElementById('EB_DialogAddNewSub_MW').value = "";}
-      else {EB_MolecularMass.value = value};
+                     document.getElementById('EB_DialogAddNewSub_MW').value = "";
+                     document.getElementById('EB_Mass').value = "";}
+      else {EB_MolecularMass.value = value;
+            document.getElementById('EB_Mass').value = "";};
   return true;
 }
 
@@ -150,6 +153,7 @@ function AddNewItemToMWSelBox(Name, MW) {
     SortSelectBox('SelB_MWselection');
     SaveOptions('SelB_MWselection');
     EB_MolecularMass.value = MW;
+    document.getElementById('EB_Mass').value = "";
     return true;
     }
 }
