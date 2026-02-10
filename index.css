@@ -11,8 +11,8 @@ body
 }
 #Shape1
 {
-   width: 329px;
-   height: 219px;
+   width: 337px;
+   height: 203px;
    background-color: #F8F8F8;
    background-image: none;
    border: 1px #D2D2D2 solid;
@@ -26,10 +26,10 @@ body
    align-items: center;
    justify-content: center;
    flex-direction: column;
-    left: 1.52%;
-   top: 2.28%;
-   width: 96.35%;
-   height: 94.52%;
+    left: 1.48%;
+   top: 2.46%;
+   width: 96.44%;
+   height: 94.09%;
    box-sizing: border-box;
    overflow: hidden;
    text-align: center;
@@ -329,16 +329,6 @@ body
    background-color: transparent;
    background-image: none;
    border-radius: 0px;
-}
-#L_MWList
-{
-   margin: 0;
-   vertical-align: top;
-   padding: 4px 4px 4px 4px;
-}
-#L_MWList:focus
-{
-   outline: 0;
 }
 .ui-dialog.ui-widget
 {
