@@ -11,7 +11,7 @@ body
 }
 #Shape1
 {
-   width: 337px;
+   width: 354px;
    height: 203px;
    background-color: #F8F8F8;
    background-image: none;
@@ -26,9 +26,9 @@ body
    align-items: center;
    justify-content: center;
    flex-direction: column;
-    left: 1.48%;
+    left: 1.41%;
    top: 2.46%;
-   width: 96.44%;
+   width: 96.61%;
    height: 94.09%;
    box-sizing: border-box;
    overflow: hidden;
