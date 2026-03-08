@@ -94,7 +94,9 @@ $(document).ready(function()
 <option value="157.6">Tris-HCl</option>
 <option value="120.14">Tris-base</option>
 </select>
+<button id="BTN_DeleteMW" onclick="DeleteSelectedMW(); return false;" title="Delete selected item from list">&#10006;</button>
 </div>
+
 <div id="D_AddNewMWSubstance">
 <input type="text" id="EB_DialogAddNewSub_Name" style="position:absolute;left:8px;top:33px;width:84px;height:18px;z-index:14;" name="Editbox1" value="" autocomplete="off" spellcheck="false">
 <input type="text" id="EB_DialogAddNewSub_MW" onfocusout="EB_DialogAddNewSub_MW.value = FloatValidationMy(EB_DialogAddNewSub_MW.value);return false;" oninput="EB_DialogAddNewSub_MW.value = FilterInput(EB_DialogAddNewSub_MW.value);return false;" style="position:absolute;left:117px;top:33px;width:84px;height:18px;z-index:15;" name="Editbox1" value="" autocomplete="off" spellcheck="false">
@@ -130,12 +132,25 @@ function FloatValidationMy(str) {
 }
 
 function MWSelectionBoxLogic(value) {
-  if (value=='add') {$("#D_AddNewMWSubstance").dialog('open');
-                     document.getElementById('EB_DialogAddNewSub_Name').value = "";
-                     document.getElementById('EB_DialogAddNewSub_MW').value = "";
-                     document.getElementById('EB_Mass').value = "";}
-      else {EB_MolecularMass.value = value;
-            document.getElementById('EB_Mass').value = "";};
+  const select = document.getElementById('SelB_MWselection');
+  const deleteBtn = document.getElementById('BTN_DeleteMW');
+
+  // Show 'x' button for items other than index 0 (blank) and 1 (Add new)
+  if (select.selectedIndex > 1) {
+      deleteBtn.style.display = 'block';
+  } else {
+      deleteBtn.style.display = 'none';
+  }
+
+  if (value=='add') {
+      $("#D_AddNewMWSubstance").dialog('open');
+      document.getElementById('EB_DialogAddNewSub_Name').value = "";
+      document.getElementById('EB_DialogAddNewSub_MW').value = "";
+      document.getElementById('EB_Mass').value = "";
+  } else {
+      EB_MolecularMass.value = value;
+      document.getElementById('EB_Mass').value = "";
+  }
   return true;
 }
 
@@ -154,7 +169,25 @@ function AddNewItemToMWSelBox(Name, MW) {
     SaveOptions('SelB_MWselection');
     EB_MolecularMass.value = MW;
     document.getElementById('EB_Mass').value = "";
+
+    // Show the delete button since a new item is now selected
+    document.getElementById('BTN_DeleteMW').style.display = 'block'; 
     return true;
+    }
+}
+
+function DeleteSelectedMW() {
+    const select = document.getElementById('SelB_MWselection');
+    const selectedIndex = select.selectedIndex;
+
+    // Ensure we only delete valid items (skip blank and 'add new')
+    if (selectedIndex > 1) {
+        select.remove(selectedIndex);
+        SaveOptions('SelB_MWselection'); // Update localStorage
+        
+        // Reset to blank option and trigger logic to update UI/hide button
+        select.selectedIndex = 0;
+        MWSelectionBoxLogic(select.value); 
     }
 }
 

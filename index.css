@@ -11,7 +11,7 @@ body
 }
 #Shape1
 {
-   width: 354px;
+   width: 370px;
    height: 203px;
    background-color: #F8F8F8;
    background-image: none;
@@ -324,6 +324,32 @@ body
    box-shadow: inset 0px 1px 1px rgba(0,0,0,0.075), 0px 0px 8px rgba(102,175,233,0.60);
    outline: 0;
 }
+
+#BTN_DeleteMW {
+   position: absolute;
+   left: 352px; /* Positions it right next to the select box */
+   top: 57px;
+   width: 26px;
+   height: 26px;
+   z-index: 14;
+   display: none; /* Hidden by default */
+   padding: 0;
+   border: none;
+   background: transparent;
+   cursor: pointer;
+   font-family: Arial, sans-serif;
+   font-weight: bold;
+   font-size: 16px;
+   color: #808080; /* Gray by default */
+}
+#BTN_DeleteMW:hover {
+   color: #FF0000; /* Red on hover */
+   transition: color 200ms ease-in-out;
+}
+#BTN_DeleteMW:focus {
+   outline: 0;
+}
+
 #Layer1
 {
    background-color: transparent;
